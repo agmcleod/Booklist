@@ -1,0 +1,38 @@
+<h1>Find the books you need</h1>
+<p>
+  Use the form below to search for the book you are looking for.<br /> 
+  Specify information such as the book title, author, or even what area of study it falls under.
+</p>
+<%= form_tag search_path do -%>
+  <p style="margin:10px 0px">
+    <b><%= label_tag :criteria, 'Type in your search criteria:' %></b>
+    <%= text_field_tag :criteria, @criteria, :class => 'text_input' %>
+    <%= submit_tag 'Search', :class => 'largeBtn' %>
+  </p>
+<% end -%>
+<% if @results && @results.size > 0 -%>
+  <%= render :partial => 'shared/used_book', :collection => @results, :locals => { :options => { :user => true, :destroy => false } } %>
+<% elsif @amazon_results.size > 0 -%>
+  <p class="flashError">No used books found by your given criteria.</p>
+  <h3 class="subHeader largeTopMargin">Cant find what you are looking for? Purchase a new copy on Amazon.</h3>
+  <% @amazon_results.each do |item| %>
+    <% attribs = item.item_attributes[0] %>
+    <div style="margin-bottom:10px;">
+      <ul>
+        <% if item.medium_image %>
+          <li>
+            <%= image_tag(h(item.medium_image[0].url), :alt => attribs.title) %>
+            </li>
+        <% end %>
+        <li>Title: <%=h attribs.title %></li>
+        <li>Author: <%=h attribs.author %></li>
+        <li>ISBN#: <%=h item.asin%>
+        <% if attribs.list_price %>
+          <li>Listed Amazon Price: <%=h attribs.list_price[0].formatted_price %></li>
+        <% end %>
+        <li><%= button_to 'Buy Now', item.detail_page_url.to_s %></li>
+      </ul>
+    </div>
+  <% end %>
+<% end -%>
+<div class="clear"></div>

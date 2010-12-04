@@ -1,0 +1,9 @@
+<h1>Post your book for sale</h1>
+<%= form_for @used_book do |f| %>
+  <%= f.hidden_field :isbn %>
+  <%= render :partial => 'used_book', :object => @used_book, :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Post book for sale', :class => 'largeBtn' %>
+  </p>
+<% end -%>
+<%= link_to 'Back', used_books_path %>

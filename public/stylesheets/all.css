@@ -1,0 +1,598 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+h1 {
+    font-size:24px;
+    font-weight:bold;
+    left:40px;
+}
+
+#content {
+	width:1100px;
+	display:block;
+	margin:0 auto;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+}
+#header {
+	margin:0 auto;
+	padding:0px;
+	height:133px;
+	position:relative;
+}
+
+.subHeader {
+    font-size:16px;
+    font-weight:bold;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.largeSubHeader {
+    font-size:20px;
+    font-weight:bold;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+/* Log in form CSS */
+#login {
+	position:absolute;
+	top:20px;
+	left:900px;
+}
+
+#login label {
+	color:#fff;
+	font-size:11px;
+	display: block;
+	width: 85px;
+	padding-right: 1em;
+}
+
+#login a {
+    color:#fff;
+    font-size:11px;
+}
+
+#login p {
+	margin-bottom:3px;
+}
+
+#login p input {
+	margin-right:0;
+	color:#000;
+}
+
+#loginBtn, .smallBtn {
+	font-size:13px;
+}
+
+
+/* Log out form Css */
+
+#loggedIn {
+	color:#fff;
+	font-size:11px;
+	position:absolute;
+	top:95px;
+	left:820px;
+	font-weight:bold;
+}
+
+/* Main Content css */
+#body {
+	font-size:13px;
+	background-color:#fff;
+	margin-right:0px;
+	overflow:hidden;
+	border:1px solid #aaa;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+}
+h1,h2,h3 {
+    color:#007;
+}
+#center {
+	width:70%;
+	padding-left:30px;
+	color:#007;
+	background-color:#fff;
+	float:left;
+	overflow:auto;
+}
+#right {
+	width:20%;
+	background-color:#fff;
+	overflow:hidden;
+	padding-left:2px;
+	margin-top:10px;
+	float:right;
+}
+
+#right p {
+	margin:0 auto;
+}
+
+/* navigation CSS */
+
+#link-bar {
+	padding:0;
+	margin:25px 0px 0px 30px;
+	height:20px;
+}
+
+#nav {
+	list-style:none;
+	position:relative;
+	margin:0 auto;
+	padding:0;
+}
+#nav li {
+	display:block;
+	float:left;
+	margin:0;
+	margin-right:3px;
+	padding:0px;
+}
+
+.links {
+	text-decoration:none;
+	font-size:15px;
+	padding:3px 10px 3px 10px;
+	background-color:#bbf;
+	margin:0;
+	font-weight:bold;
+	color:#22f;
+}
+
+#nav a:hover {
+	background-color:#fff;
+	border:1px solid #bbb;
+	border-bottom:0;
+	padding-top:6px;
+}
+
+.currentPage {
+	text-decoration:none;
+	background-color:#fff;
+	border:1px solid #bbb;
+	border-bottom:0;
+	margin:0;
+	color:#22f;
+	font-weight:bold;
+	padding:6px 10px 3px 10px;
+	font-size:15px;
+}
+
+/* Main content of the page */
+
+#mainContent {
+    border:1px solid #bbb;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	margin:0 5px;
+	padding:10px;
+	min-height:250px;
+	width:90%;
+}
+
+/* error css */
+
+.fieldWithErrors {
+  color:#c00;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #000;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  color:#000;
+  font-size: 12px;
+  list-style: circle inside;
+  padding-left:50px;
+}
+
+
+.errP {
+    color:#000;
+	border:1px solid #b00;
+	background-color:#fbb;
+	padding:4px;
+	font-size:12px;
+}
+
+.tip {
+	color:#666;
+	font-size:12px;
+}
+
+.smallTip {
+    color:#666;
+    font-size:11px;
+}
+
+.formBlock p {
+	margin-bottom:10px;
+}
+
+.formBlock label {
+    text-align:right;
+    width:210px;
+    float:left;
+    font-size:14px;
+	margin-right:5px;
+}
+
+.formBlock select, .largeSelect, .modelForm select {
+	font-size:16px;
+}
+
+.formBlock .required {
+    font-size:10px;
+    color:#f00;
+}
+
+.formBlock .formButton {
+    margin-left:205px;
+	margin-top:10px;
+}
+
+.formBlock #recaptcha_widget_div {
+	margin-left:205px;
+}
+
+.centered-header {
+    margin-left:120px;
+}
+
+.centered-descript {
+    font-weight:bold;
+    margin:5px 5px 10px 120px;
+	font-size:16px;
+}
+
+#signUp {
+	font-size:24px;
+	color:#39c;
+	padding-bottom:10px;
+}
+
+#indexContainer {
+    margin:0 auto;
+    width:450px;
+}
+
+th {
+    font-weight:bold;
+    padding:3px;
+}
+
+.tableList td {
+    padding:3px;
+}
+
+.underlineLink {
+    text-decoration:underline;
+}
+
+/* book profile css */
+#book-content {
+    margin-top:20px;
+    position:relative;
+    overflow:hidden;
+}
+
+#comments-container {
+    margin-top:35px;
+}
+
+#comment_body {
+    height:160px;
+}
+
+#comments {
+    width:350px;
+    color:#000;
+}
+
+.comment-block hr {
+    width:220px;
+    margin:0 auto;
+}
+
+.comment-block p {
+    padding:5px;
+}
+
+#book-image {
+    float:left;
+    margin-right:8px;
+}
+
+#book-title {
+    font-weight:bold;
+    color:#000;
+    font-size:18px;
+}
+
+/* Index page css */
+#previewImg {
+    border:2px solid #555;
+    display:block;
+    margin:0 auto;
+}
+
+/* Browse area of study css */
+
+.areaofstudy_div {
+    margin-top:10px;
+}
+
+.browse_list {
+    list-style:none;
+    position:relative;
+    overflow:hidden;
+}
+
+.browse_list li {
+    display:block;
+    float:left;
+    width:175px;
+    height:320px;
+}
+
+.browse_list span {
+    font-weight:bold;
+}
+
+.course-book-header {
+    margin-top:8px;
+}
+
+.searchForm p {
+    width:610px;
+    margin:0 auto;
+	height:25px;
+	padding-top:5px;
+}
+
+.searchForm {
+    background-color:#bfb;
+	height:30px;
+}
+
+.searchForm select {
+	font-size:13px;
+}
+
+#searchBarSubmit {
+	font-size:13px;
+}
+
+.searchBox {
+    width:380px;
+}
+
+.slightVertMargin {
+    margin:5px 0px;
+}
+
+.someBottomMargin {
+    margin-bottom:10px;
+}
+
+.noteForm textarea {
+    width:250px;
+    height:80px;
+}
+
+.coverImage {
+    float:left;
+}
+
+.bookContainer {
+    overflow:hidden;
+}
+
+.headerLetter {
+    text-decoration:underline;
+    font-weight:600;
+}
+
+.faqCategory {
+    margin-bottom:10px;
+}
+
+.faqCategory span {
+    font-weight:bold;
+    font-size:14px;
+    text-decoration:underline;
+}
+
+.faqDiv {
+    margin-bottom:10px;
+}
+
+#mainContent h1 {
+    margin-bottom:10px;
+}
+
+#faqsLink {
+    margin-top:5px;
+}
+
+.formWithSpacing p {
+	margin-bottom:10px;
+}
+
+.formWithSpacing p input, .formWithSpacing p textarea {
+	margin-top:5px;
+}
+
+label {
+	font-size:14px;
+}
+
+input.text_input {
+	font-size:16px;
+	height:20px;
+}
+
+textarea {
+	font-size:16px;
+}
+
+.largeBtn {
+	font-size:16px;
+}
+
+#smallButton, .largeButton, .modelForm input[type=select] {
+	font-size:13px;
+}
+
+.modelForm p {
+	margin-bottom:10px;
+}
+
+.ticketsTable {
+	border-collapse:collapse;
+	border:1px solid #444;
+	color:#000;
+	min-width:500px;
+	max-width:620px;
+}
+
+.ticketsRow td {
+	padding:5px;
+}
+
+.ticketsTable tr {
+	border:1px solid #444;
+}
+
+.ticketsRowGray {
+	background-color:#ddd;
+}
+
+.ticketsHeaderRow {
+	background-color:#ddd;
+}
+
+.ticketsHeaderRow th {
+	padding:7px 5px;
+}
+
+.mediumText {
+	font-size:14px;
+	margin-top:5px;
+}
+
+.ticketUpdate {
+	padding:10px;
+	width:500px;
+	border:1px solid #666;
+	margin-bottom:10px;
+}
+
+#ticketUpdatesContainer {
+	margin-top:15px;
+}
+
+.here {
+	font-size:18px;
+}
+
+.bookContainer {
+	overflow:hidden;
+	margin-bottom:15px;
+}
+
+.bookContainerGrid {
+	width: 140px;
+}
+
+.bookContainerFloat {
+	float:left;
+	margin-bottom:15px;
+}
+
+.bookContainer img {
+	border:1px solid #006;
+}
+
+.formTextarea {
+	width:350px;
+	height:160px;
+}
+
+.clear {
+	clear:both;
+}
+
+#nav a:hover {
+	padding-top:6px;
+	background-color:#fff;
+	color:#2222ff;
+	border-top:1px solid #bbb;
+	border-left:1px solid #bbb;	
+	border-right:1px solid #bbb;	
+}

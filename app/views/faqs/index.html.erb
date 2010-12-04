@@ -1,0 +1,10 @@
+<h1>Support - Frequently Asked Questions (FAQ)</h1>
+
+<%= render :partial => "shared/faq", :collection => @faqs, :locals => { :user => current_user } %>
+<% user = current_user %>
+<% if user && user.is_admin? -%>
+  <p>
+    <%= link_to 'New faq', new_faq_path %> | <%= link_to "New Category", new_faq_category_path %> <br />
+    <%= link_to "Show Categories", faq_categories_path %>
+  </p>
+<% end -%>

@@ -1,0 +1,31 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.email %></td>
+    <td><%= link_to 'Show', user %></td>
+    <% if user.id != session[:user_id] -%>
+      <td>      
+        <%= form_for(:user, :url => { :action => :update_permissions }) do |f| %>
+          <%= hidden_field_tag 'user[id]', user.id %>
+          <%= f.select :roles, @roles.collect {|r| [ r.name, r.name ] }, :selected => user.roles.first.name %>
+          <%= f.check_box :disabled, user.is_disabled?, checked_value = "1", unchecked_value = "0" %>   
+          <%= f.submit 'Update Account', :id => 'smallButton' %>
+        <% end %>      
+      </td>    
+      <td>
+        <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    <% end -%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user', new_user_path %>

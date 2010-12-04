@@ -1,0 +1,9 @@
+init.rb
+install.rb
+lib/migration_helpers.rb
+MIT-LICENSE
+README
+Rakefile
+tasks/migration_helpers_tasks.rake
+test/migration_helpers_test.rb
+uninstall.rb

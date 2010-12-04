@@ -1,0 +1,42 @@
+<h1>User Control Panel</h1>
+
+<p>
+  <%= link_to "Change Password", change_password_path %>
+  <% if current_user.is_admin? -%>
+    <%= link_to "Manage Users", users_path %>
+  <% end -%>
+</p>
+
+<h3 class="subHeader someBottomMargin underline">Your books:</h3>
+<% used_book_counter = 1 -%>
+<% @used_books.group_by(&:status).sort.each do |status, books| %>
+  <h3 class="subHeader"><%= UsedBook.status_to_s(status) %></h3>
+  <% books.each do |used_book| %>
+    <% book = used_book.book %>
+    <div class="bookContainerGrid bookContainerFloat">
+      <ul>
+        <% unless book.medium_image_path.blank? -%>
+          <li style="margin-right:5px"><%= link_to image_tag(book.medium_image_path), used_book_path(used_book) %></li>
+        <% end -%>
+        <li style="font-size:16px"><b>Price:</b> <%= number_to_currency(used_book.price) %></li>
+        <% if UsedBook.status_to_s(status) != 'Sold' -%>
+          <% unless used_book.promoted -%>
+            <li><%= button_to "Promote", used_book.paypal_url(used_book_url(used_book), payment_notifications_url) %></li>
+          <% else -%>
+            <li><%= button_to "Promoted", used_book.paypal_url(used_book_url(used_book), payment_notifications_url), :disabled => 'disabled' %></li>
+          <% end -%>
+        <% end -%>
+        <li><b>Title:</b> <%= truncate(book.title, :length => 25) %></li>
+        <li><b>Author:</b> <%= truncate(book.author, :length => 15) %></li>
+        <% if used_book.status == UsedBook.status_to_i('For Sale') -%>
+          <li><%= link_to "Remove posting", used_book, :confirm => 'Are you sure?', :method => :delete %> </li>
+        <% end -%>
+      </ul>
+    </div>
+    <%= '<div class="clear"></div>'.html_safe if used_book_counter % 4 == 0 %>
+    <% used_book_counter += 1 -%>
+  <% end -%>
+  <div class="clear"></div>
+<% end -%>
+
+<div class="clear"></div>

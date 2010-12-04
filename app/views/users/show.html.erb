@@ -1,0 +1,7 @@
+<h1>User: <%= @user.display_name %></h1>
+
+<h3 class="subHeader">Books onsale from this user</h3>
+<%= render :partial => 'shared/used_book', :collection => @used_books, :locals => { :options => { :user => false, :destroy => true, :promote => true } } %>
+<div class="clear"></div>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

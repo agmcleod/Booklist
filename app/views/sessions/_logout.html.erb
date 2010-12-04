@@ -1,0 +1,11 @@
+<div id="loggedIn">
+  <%= form_tag logout_destroy_path do -%>
+    <fieldset>
+      <p>
+        <%=h "Logged in as: #{user.email}" %>
+        <%= submit_tag 'Logout', :id => 'loginBtn' %>
+      </p>
+    </fieldset>
+  <% end -%>
+</div>
+

@@ -1,0 +1,6 @@
+key_id = 'AKIAJA7VG5UF2LYBOOXA'
+secret_key_id = 'VfiUrSD+2n2eQzQ4stfFX1qNoP17Y/9w1BG7Kmx9'
+associate = 'mybookshelf02-20'
+cache = false
+locale = 'ca'
+encoding = 'iso-8859-15'

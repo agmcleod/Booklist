@@ -1,0 +1,19 @@
+<div class="faqDiv">
+  <% if faq.faq_category_id != id -%>
+    <% id = faq.faq_category_id %>
+    <p class="faqCategory"><span><%= faq.faq_category.name %></span>
+    <% if user && user.is_admin? -%>
+      <%= link_to 'Edit', edit_faq_category_path(faq.faq_category) %> |
+      <%= link_to 'Destroy', faq.faq_category, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    </p>
+  <% end -%>
+  <p><b>Question: </b><%=h faq.question %></p>
+  <p><b>Answer: </b><%=h faq.answer %></p>
+  <% if user && user.is_admin? -%>
+    <p>
+      <%= link_to 'Edit', edit_faq_path(faq) %> |
+      <%= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete %>
+    </p>
+  <% end -%>
+</div>

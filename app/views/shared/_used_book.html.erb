@@ -1,0 +1,32 @@
+<% book = used_book.book %>
+<div class="bookContainerGrid bookContainerFloat">
+  <ul>
+    <% unless book.medium_image_path.blank? -%>
+      <li style="margin-right:5px"><%= link_to image_tag(book.medium_image_path), used_book_path(used_book) %></li>
+    <% end -%>
+    <li style="font-size:16px"><b>Price:</b> <%= number_to_currency(used_book.price) %></li>
+    <% unless is_owner?(session[:user_id], used_book.user.id) %>
+      <li><%= button_to "Buy Now!", buy_now_path(used_book) %> </li>
+    <% end -%>
+    <% if options[:promote] && !used_book.promoted && is_owner?(session[:user_id], used_book.user.id) -%>
+      <li><%= button_to "Promote", used_book.paypal_url(used_book_url(used_book), payment_notifications_url) %></li>
+    <% end -%>
+    <li><b>Title:</b> <%= truncate(book.title, :length => 25) %></li>
+    <li><b>Author:</b> <%= truncate(book.author, :length => 15) %></li>
+    <% if options[:user] -%>
+      <li>sold by: <%= sold_by used_book %></li>
+    <% end -%>
+    <% if options[:destroy] && is_owner_or_admin?(current_user, used_book.user_id) -%>
+      <li><%= link_to "Remove posting", used_book, :confirm => 'Are you sure?', :method => :delete %> </li>
+    <% end -%>
+  </ul>
+</div>
+<% if options[:show_description] %>
+  <div>
+    <p><b>Description:</b> <%= used_book.description %></p> 
+  </div>
+<% end -%>
+<% used_book_counter = used_book_counter || nil %>
+<% unless used_book_counter.nil? -%>
+  <%= '<div class="clear"></div>'.html_safe if (used_book_counter + 1) % 4 == 0 %>
+<% end -%>

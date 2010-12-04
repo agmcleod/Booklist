@@ -1,0 +1,20 @@
+<h1><%= show_tickets_index_header %></h1>
+<table class="ticketsTable">
+  <tr class="ticketsHeaderRow">
+    <th>Submitted By</th>
+    <th>Ticket Description</th>
+    <th>Date Submitted</th>
+    <th>Status</th>
+  </tr>
+  <% @tickets.each do |ticket| %>
+    <tr class="ticketsRow <%= ticket_row_colour(@tickets.index(ticket))%>">
+      <td><%= ticket.email %></td>
+      <td><%= link_to(truncate(ticket.comment, :length => 40), ticket_path(ticket.id)) %></td>
+      <td><%= ticket.created_at.to_date %></td>
+      <td><%= Ticket.status_to_s(ticket.status) %></td>
+    </tr>
+  <% end %>
+</table>
+<p>
+  <%= show_open_tickets_link %>
+</p>

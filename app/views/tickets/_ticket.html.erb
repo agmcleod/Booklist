@@ -1,0 +1,14 @@
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :name, 'Your full name:' %><br />
+  <%= f.text_field :name, :class => 'text_input' %>
+</p>
+<p>
+  <%= f.label :email, 'Your email address' %><br />
+  <%= f.text_field :email, :class => 'text_input' %>
+</p>
+<p>
+  <%= f.label :comment, 'Please describe the problem you are having:' %><br />
+  <%= f.text_area :comment, :class => 'formTextarea' %>
+</p>

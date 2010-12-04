@@ -1,0 +1,4 @@
+def my_method
+  puts "My Method Called"
+end
+

@@ -1,0 +1,15 @@
+<h1>Editing ticket</h1>
+
+<%= form_for(@ticket) do |f| %>
+  <%= render :partial => "ticket", :locals => { :f => f } %>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.select Ticket.status_hash %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ticket %> |
+<%= link_to 'Back', tickets_path %>

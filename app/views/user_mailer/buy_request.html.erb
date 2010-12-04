@@ -1,0 +1,5 @@
+Hello, <%= @user.display_name %>
+
+<%= @buyer.display_name %> wishes to purchase your copy of <%= @used_book.book.title %>.
+To accept the request, go <%= accept_buy_request_url(@used_book, @buyer) %>, and 
+click the accept button beside <%= @buyer.display_name %>.

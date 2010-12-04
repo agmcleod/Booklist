@@ -1,0 +1,24 @@
+.note {
+    margin:20px;
+    font-size:11px;
+}
+
+#contactForm {
+    margin-left:20px;
+}
+
+#contactForm label {
+    text-align:right;
+    width:140px;
+    display:block;
+    float:left;
+    margin-right:15px;
+}
+
+#contactForm p {
+    margin:5px 0px;
+}
+
+.errorBlock {
+    margin:20px;
+}

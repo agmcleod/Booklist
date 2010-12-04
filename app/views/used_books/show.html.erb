@@ -1,0 +1,20 @@
+<%= render :partial => "shared/used_book", :object => @used_book, :locals => { :options => { :user => true, :destroy => true, :promote => true, :show_description => true } } %>
+
+<div class="clear"></div>
+
+<% if @used_book.status == UsedBook.status_to_i('In Transaction') && is_owner?(session[:user_id], @used_book.user_id) -%>
+  <p><%= button_to "Confirm that it's Sold", set_book_to_sold_path(@used_book.id) %></p>
+<% end -%>
+
+<% if @used_book.book_transactions.size > 0 && is_owner?(session[:user_id], @used_book.user_id) -%>
+  <div>
+    <h3>Buy requests:</h3>
+    <ul>
+      <% @used_book.book_transactions.each do |transaction| -%>
+        <li><%= transaction.user.display_name %> <%= link_to "Accept", accept_buy_request_path(@used_book, transaction.user.id) %></li>
+      <% end -%>
+    </ul>
+  </div>
+<% end -%>
+<%= link_to 'Edit', edit_used_book_path(@used_book) %> |
+<%= link_to 'Back', used_books_path %>

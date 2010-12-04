@@ -1,0 +1,8 @@
+<li><%= link_to 'Main Page', root_path, :class => 'links' %></li>
+<li><%= link_to "Search", search_path, :class => 'links' %></li>
+<li><%= link_to "Post a book", browse_path, :class => 'links' %></li>
+<li><%= link_to "Your Profile", user_cp_path, :class => 'links' %> </li>
+<li><%= link_to "Support", support_path, :class => 'links' %></li>
+<% if user && user.is_admin? -%>
+  <li><%= link_to "Tickets", tickets_path, :class => 'links' %> </li>
+<% end -%>

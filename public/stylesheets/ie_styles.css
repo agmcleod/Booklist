@@ -1,0 +1,8 @@
+#nav a:hover {
+	padding-top:6px;
+	background-color:#fff;
+	color:#2222ff;
+	border-top:1px solid #bbb;
+	border-left:1px solid #bbb;	
+	border-right:1px solid #bbb;	
+}

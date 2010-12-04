@@ -1,0 +1,38 @@
+<% if session[:user_id].nil? -%>
+  <h1>Wish to post a book you have for sale?<br /> <%= link_to "Sign up", register_path %> for an account today</h1>
+<% else -%>
+  <h1>Find and post a <%= link_to "book", browse_path %> for sale</h1>
+<% end -%>
+<h3 class="subHeader">Promoted books</h3>
+<div>
+  <a href="#" class="prev"><%= image_tag 'left-arrow.png', :alt => 'Prev' %></a>
+  <div class="scrollable">
+    <div class="items">
+      <div class="itemsLeft">
+      <% counter = 1 %>
+      <% @used_books.each do |used_book| -%>
+        <% book = used_book.book -%>        
+        <% if counter % 5 == 0 %>
+          </div><div class="itemsLeft">
+        <% end -%>
+          <div class="bookContainerGrid bookContainerFloat">
+            <ul>
+              <% unless book.medium_image_path.blank? -%>
+                <li style="margin-right:5px"><%= link_to image_tag(book.medium_image_path), used_book_path(used_book) %></li>
+              <% end -%>
+              <li style="font-size:16px"><b>Price:</b> <%= number_to_currency(used_book.price) %></li>
+              <% unless is_owner?(session[:user_id], used_book.user.id) %>
+                <li><%= button_to "Buy Now!", buy_now_path(used_book) %> </li>
+              <% else %>
+                <li>You own this</li>
+              <% end -%>
+            </ul>
+          </div>
+        <% counter += 1 %>
+      <% end -%>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="next"><%= image_tag 'right-arrow.png', :alt => 'Next' %></a>
+</div>
+<div class="clear"></div>

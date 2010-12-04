@@ -1,0 +1,17 @@
+<h1>You have accepted the buyer for: <%= @used_book.book.title %></h1>
+<h3 class="subHeader">Please fill out this form, providing a method of contact to the buyer, so the both of you can arrange the sale.</h3>
+<%= form_tag send_buyer_contact_info_path do -%>
+  <p>
+    <%= text_area_tag :message %>
+    <%= hidden_field_tag :user_id, @user_id %>
+    <%= hidden_field_tag :used_book_id, @used_book.id %>
+  </p>
+  <p>
+    <%= submit_tag "Send message" %>
+  </p>
+<% end -%>
+
+<p>
+  Be sure to come back and close the sale after you have sold your book to the buyer. That way we wont clog your inbox with
+  buy requests.
+</p>

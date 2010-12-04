@@ -1,0 +1,10 @@
+<h1>New faq_category</h1>
+
+<%= form_for(@faq_category) do |f| %>
+  <%= render :partial => "faq_category", :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', faq_categories_path %>

@@ -1,0 +1,30 @@
+<h1>What book do you wish to advertise?</h1>
+<h3 class="subHeader">Use the below textbox to search for your book.</h3>
+<p class="someBottomMargin">Provide information such as the author and the title, or better yet the 10 digit ISBN number</p>
+<div class="someBottomMargin">
+<%= form_tag browse_path do %>
+  <%= label_tag :criteria, 'Search:' %>
+  <%= text_field_tag :criteria, @criteria, :class => 'text_input' %>
+  <%= submit_tag 'Search', :class => 'largeBtn' %>
+<% end -%>
+</div>
+
+<% @items.each do |item| %>
+  <% attribs = item.item_attributes[0] %>
+  <div style="margin-bottom:10px;">
+    <ul>
+      <% if item.medium_image %>
+        <li>
+          <%= image_tag(h(item.medium_image[0].url), :alt => attribs.title) %>
+          </li>
+      <% end %>
+      <li>Title: <%=h attribs.title %></li>
+      <li>Author: <%=h attribs.author %></li>
+      <li>ISBN#: <%=h item.asin%>
+      <% if attribs.list_price %>
+        <li>Listed Amazon Price: <%=h attribs.list_price[0].formatted_price %></li>
+      <% end %>
+      <li><%= link_to 'Post this book for sale', new_used_book_path(item.asin), :class => 'underlineLink' %></li>
+    </ul>
+  </div>
+<% end %>

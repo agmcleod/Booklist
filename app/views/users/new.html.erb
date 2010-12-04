@@ -1,0 +1,30 @@
+<h1>New user registration</h1>
+
+<%= form_for @user, :html => { :class => 'modelForm' } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :email, 'Enter in your email address' %><br />
+    <%= f.text_field :email, :class => 'text_input' %>
+  </p>
+  <p>
+    <%= f.label :password, 'Now a password' %><br />
+    <%= f.password_field :password, :class => 'text_input' %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, 'Type that password again, just to be sure' %><br />
+    <%= f.password_field :password_confirmation, :class => 'text_input' %>
+  </p>
+  <p>
+    <%= f.label :display_name, "Type in a display name. This will be shown on the site" %><br />
+    <%= f.text_field :display_name, :class => 'text_input' %>
+  </p>
+  <p>
+    <label>Just want to verify that you are a human</label>
+    <%= recaptcha_tags.html_safe %>
+  </p>
+  <p>
+    <%= f.submit 'Register', :class => 'largeBtn' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>

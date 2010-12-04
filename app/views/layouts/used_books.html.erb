@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="utf-8" />
+		<title> <%= yield(:title) || '' %> BookList</title>
+		<%= stylesheet_link_tag 'normalize', :cache => false %>
+		<%= stylesheet_link_tag 'styles', :cache => false %>
+		<%= stylesheet_link_tag 'ie_styles', :cache => false %>
+		<%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', 'application', 
+		  'http://cdn.jquerytools.org/1.2.3/jquery.tools.min.js', 'jquery-ujs', :cache => false %>
+		<%# javascript_include_tag :defaults, 'jquery-1.3.2.min' %>
+		<%= yield(:head) %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="content">
+			<div id="header">
+				<%= image_tag 'booklist.png', :alt => 'booklist', :width => '1100' %>
+				<% user = User.find_by_id(session[:user_id]) %>
+        <% if session[:user_id] && session[:user_id] != nil -%>
+		      <%= render :partial => 'sessions/logout', :locals => { :user => user } %>
+		    <% else -%>
+		      <%= render :partial => 'sessions/login' %>
+		    <% end -%>
+			</div>
+			<div id="body">			  
+				<div id="center">
+					<div id="link-bar">
+						<ul id="nav">
+              <%= render :partial => 'shared/links', :locals => { :user => user } %>
+						</ul>
+					</div>
+					<div id="mainContent">
+					  <% if flash[:notice] -%>
+              <p style="color: green"><%= notice %></p>
+            <% elsif flash[:error] -%>
+              <p class="flashError"><%= flash[:error] %></p>
+            <% end -%>
+            <%= yield %>
+					</div>
+				</div>
+				<div id="right">
+					<p>
+						<%= image_tag('adfiller.jpg', :alt => 'ads') %>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
